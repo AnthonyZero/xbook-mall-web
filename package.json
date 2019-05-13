@@ -1,0 +1,22 @@
+{
+  "name": "xbook-mall-web",
+  "version": "1.0.0",
+  "description": "xbook-mall前端代码",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnthonyZero/xbook-mall-web.git"
+  },
+  "author": "anthonyzero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnthonyZero/xbook-mall-web/issues"
+  },
+  "homepage": "https://github.com/AnthonyZero/xbook-mall-web#readme",
+  "devDependencies": {
+    "webpack": "^1.15.0"
+  }
+}
