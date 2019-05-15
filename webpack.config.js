@@ -34,6 +34,7 @@ var config = {
     },
     //【新增】：webpack4里面移除了commonChunksPulgin插件，放在了config.optimization里面
     optimization: {
+        minimize: false,
         runtimeChunk: false,
         splitChunks: {
             cacheGroups: {
