@@ -23,20 +23,21 @@ var config = {
     },
     //模块：例如解读CSS,图片如何转换，压缩 【改动】：图片文件的加载方式变化，并和字体文件分开处理 图片小于2kb的按base64打包
     module: {
+        //指定模块解析规则
         rules: [{
             test: /\.css$/,
             use: ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: "css-loader"
+                fallback: "style-loader", // 编译后用什么loader来提取css文件
+                use: "css-loader" // 指需要什么样的loader去编译文件,这里由于源文件是.css所以选择css-loader
             })
         },
         ]
     },
     //【新增】：webpack4里面移除了commonChunksPulgin插件，放在了config.optimization里面
     optimization: {
-        minimize: false,
+        minimize: false, //不压缩 默认true
         runtimeChunk: false,
-        splitChunks: {
+        splitChunks: { //模块代码拆分
             cacheGroups: {
                 common: {
                     name: "common",
