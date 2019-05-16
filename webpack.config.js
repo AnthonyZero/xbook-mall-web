@@ -9,6 +9,8 @@ var webpack = require("webpack");
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+// 环境变量配置，development / production 默认dev容错
+var WEBPACK_ENV = process.env.WEBPACK_ENV || "dev";
 
 // 获取html-webpack-plugin参数的方法
 var getHtmlConfig = function(name, title){
@@ -30,7 +32,8 @@ var config = {
     },
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'js/[name].js'
+        filename: 'js/[name].js',
+        publicPath: WEBPACK_ENV === 'dev' ? "/dist/" : "//127.0.0.1/mmall-m/dist/", //相当于发布后的contextPath
     },
     externals : {
         'jquery' : 'window.jQuery'
@@ -65,7 +68,7 @@ var config = {
         },{
             test: /\.string$/,
             use: [{
-                loader: 'html-loader', //针对src/view/layout
+                loader: 'html-loader', //针对src/view/layout 页面require引用
                 options: {
                     minimize: true,
                     removeAttributeQuotes: false
@@ -74,6 +77,22 @@ var config = {
         }
         ]
     },
+
+    //配置webpack开发服务功能
+    /*devServer: {
+        port: '8080', //设置端口号
+        // 路径的配置
+        historyApiFallback: {
+            index: '/dist/page/index/index.html' //如果找不到界面就返回默认设置页
+        },
+        proxy: { //代理
+            '/!**!/!*.do': {
+                target: 'http://...',
+                changeOrigin: true //解决跨域
+            }
+        }
+    },*/
+
     //【新增】：webpack4里面移除了commonChunksPulgin插件，放在了config.optimization里面
     optimization: {
         minimize: false, //不压缩 默认true
