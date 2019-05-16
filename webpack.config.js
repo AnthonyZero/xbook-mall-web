@@ -35,7 +35,7 @@ var config = {
     externals : {
         'jquery' : 'window.jQuery'
     },
-    //模块：例如解读CSS,图片如何转换，压缩 【改动】：图片文件的加载方式变化，并和字体文件分开处理 图片小于2kb的按base64打包
+    //模块：例如解读CSS,图片如何转换，压缩 【改动】：图片文件的加载方式变化，并和字体文件分开处理
     module: {
         //指定模块解析规则
         rules: [{
@@ -44,7 +44,34 @@ var config = {
                 fallback: "style-loader", // 编译后用什么loader来提取css文件
                 use: "css-loader" // 指需要什么样的loader去编译文件,这里由于源文件是.css所以选择css-loader
             })
-        },
+        },{
+            test: /\.(png|jpg|gif)$/, //正则匹配
+            use: [{
+                loader: 'url-loader',
+                options: {
+                    limit: 2048, //图片小于2kb的按base64打包
+                    name: 'resource/[name].[ext]'
+                }
+            }]
+        },{
+            test: /\.(eot|svg|ttf|woff|woff2|otf)$/,
+            use: [{
+                loader: 'url-loader',
+                options: {
+                    limit: 8192,
+                    name: 'resource/[name].[ext]'
+                }
+            }]
+        },{
+            test: /\.string$/,
+            use: [{
+                loader: 'html-loader', //针对src/view/layout
+                options: {
+                    minimize: true,
+                    removeAttributeQuotes: false
+                }
+            }]
+        }
         ]
     },
     //【新增】：webpack4里面移除了commonChunksPulgin插件，放在了config.optimization里面
