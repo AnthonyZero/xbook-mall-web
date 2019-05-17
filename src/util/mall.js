@@ -44,10 +44,44 @@ var _mall = {
         var result      = window.location.search.substr(1).match(reg);
         return result ? decodeURIComponent(result[2]) : null;
     },
+    //渲染html模板
+    renderHtml : function(htmlTemplate, data){
+        var template    = Hogan.compile(htmlTemplate),
+            result      = template.render(data);
+        return result;
+    },
+    //成功提示
+    successTips : function(msg){
+        alert(msg || '操作成功！');
+    },
+    //错误提示
+    errorTips : function(msg){
+        alert(msg || '哪里不对了~');
+    },
+    //字段的验证，支持非空、手机、邮箱的判断
+    validate : function(value, type){
+        var _value = $.trim(value);
+        //非空验证
+        if('require' === type){
+            return !!_value;
+        }
+        //手机号验证
+        if('phone' === type){
+            return /^1\d{10}$/.test(_value);
+        }
+        //邮箱格式验证
+        if('email' === type){
+            return /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(_value);
+        }
+    },
     // 统一请求处理
     doLogin :function() {
         window.location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href);
     },
+    //go home
+    goHome : function(){
+        window.location.href = './index.html';
+    }
 }
 
 module.exports = _mall;
