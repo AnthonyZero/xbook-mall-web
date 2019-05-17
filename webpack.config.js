@@ -25,6 +25,8 @@ var getHtmlConfig = function(name, title){
 };
 
 var config = {
+    /* 【新增】：新增mode参数，webpack4中要指定模式，可以放在配置文件这里，也可以放在启动命令里，如--mode production*/
+    mode: 'dev' === WEBPACK_ENV ? 'development' : 'production',
     entry: {
         'common': ['./src/page/common/index.js'],
     	'login': ['./src/page/login/index.js']
