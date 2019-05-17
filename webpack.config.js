@@ -27,8 +27,7 @@ var getHtmlConfig = function(name, title){
 var config = {
     entry: {
         'common': ['./src/page/common/index.js'],
-    	'app': ['./src/page/index/app.js'],
-    	'cats': ['./src/page/index/cats.js']
+    	'login': ['./src/page/login/index.js']
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -124,6 +123,7 @@ var config = {
         new ExtractTextPlugin("css/[name].css"),
         // html模板的处理
         new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
+        new HtmlWebpackPlugin(getHtmlConfig('login', '登陆')),
     ]
     
 }

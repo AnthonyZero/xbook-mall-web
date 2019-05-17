@@ -6,3 +6,6 @@
 */
 
 console.log("i love you")
+require('./layout.css');
+var _mall = require("util/mall.js");
+
