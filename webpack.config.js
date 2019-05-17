@@ -93,6 +93,17 @@ var config = {
         }
     },*/
 
+    //配置文件目录别名
+    resolve: {
+        alias: {
+            node_modules: __dirname + '/node_modules',
+            util: __dirname + '/src/util',
+            page: __dirname + '/src/page',
+            service: __dirname + '/src/service',
+            image: __dirname + '/src/image'
+        }
+    },
+
     //【新增】：webpack4里面移除了commonChunksPulgin插件，放在了config.optimization里面
     optimization: {
         minimize: false, //不压缩 默认true
