@@ -1,5 +1,9 @@
 //通用工具
 
+var config = {
+    serverHost:''
+};
+
 var _mall = {
 
     // 网络请求
@@ -30,7 +34,16 @@ var _mall = {
             }
         });
     },
-
+    // 获取服务器地址
+    getServerUrl:function(path) {
+        return config.serverHost+path;
+    },
+    //请求url参数 name为key
+    getUrlParam : function(name) {
+        var reg         = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+        var result      = window.location.search.substr(1).match(reg);
+        return result ? decodeURIComponent(result[2]) : null;
+    },
     // 统一请求处理
     doLogin :function() {
         window.location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href);
