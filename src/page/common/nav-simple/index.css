@@ -1,6 +1,6 @@
 
 .nav-simple{
-    height: 60px;
+    height: 70px;
     line-height: 60px;
     background: #fff;
     border-bottom: 1px solid #ddd;
@@ -11,8 +11,8 @@
     font-weight: bold;
     text-decoration: none;
     background-image:url(../../../image/xbookmall.png);
-    height: 60px;
-    width: 250px;
+    height: 70px;
+    width: 280px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     -moz-background-size: 100% 100%;
