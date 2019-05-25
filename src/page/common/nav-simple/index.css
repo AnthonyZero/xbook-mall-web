@@ -1,0 +1,19 @@
+
+.nav-simple{
+    height: 60px;
+    line-height: 60px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.nav-simple .w{
+    color: #c60023;
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: none;
+    background-image:url(../../../image/xbookmall.png);
+    height: 60px;
+    width: 250px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+}
