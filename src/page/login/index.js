@@ -1,7 +1,7 @@
 
 console.log("i love you")
 require('./index.css');
-require('page/common/nav/index')
+require('page/common/header/index')
 var _mall = require('util/mall');
 _mall.request({
     url : 'http://test.happymmall.com/product/list.do?keyword=p',
