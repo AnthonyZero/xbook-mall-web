@@ -5,7 +5,6 @@
 * @Last Modified time: 2019-05-15 23:41:08
 */
 
-console.log("i love you")
 require('./layout.css');
 require('./footer/index.css');
 var _mall = require("util/mall.js");

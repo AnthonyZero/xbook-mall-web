@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <%= require('html-loader!./layout/head-common.html') %>
-    <title>Xbook-Mall电商平台</title>
+    <title><%= htmlWebpackPlugin.options.title%> - Xbook-Mall一站式书籍购物平台</title>
 </head>
 <body>
-    <%= require('html-loader!./layout/nav-simple.html') %>
-
+    <%= require('html-loader!./layout/nav.html') %>
+    <%= require('html-loader!./layout/header.html') %>
+    <div class="page-wrap w">
+        <%= require('html-loader!./layout/nav-side.html') %>
+    </div>
     <%= require('html-loader!./layout/footer.html') %>
 </body>
 </html>
