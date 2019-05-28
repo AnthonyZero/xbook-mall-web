@@ -7,5 +7,4 @@
 
 require('./layout.css');
 require('./footer/index.css');
-var _mall = require("util/mall.js");
 

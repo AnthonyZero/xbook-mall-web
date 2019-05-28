@@ -1,10 +1,12 @@
 
 require('./index.css');
 var _mall     = require('util/mall.js');
+var _user   = require('service/user-service.js');
 // 导航
 var nav = {
     //初始化
     init : function(){
+        this.loadUserInfo();
         this.bindEvent();
         return this;
     },
@@ -25,6 +27,14 @@ var nav = {
             }, function(errMsg){
                 _mall.errorTips(errMsg);
             });
+        });
+    },
+    // 加载用户信息
+    loadUserInfo : function(){
+        _user.checkLogin(function(res){
+            $('.user.not-login').hide().siblings('.user.login').show().find('.username').text(res.username);
+        }, function(errMsg){
+            console.log('checkLogin:'+errMsg);
         });
     },
 };
