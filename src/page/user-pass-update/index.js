@@ -37,6 +37,7 @@ var page = {
                     passwordNew : userInfo.passwordNew
                 }, function(res, msg){
                     _mall.successTips(msg);
+                    window.location.href = './user-center.html';
                 }, function(errMsg){
                     _mall.errorTips(errMsg);
                 });
