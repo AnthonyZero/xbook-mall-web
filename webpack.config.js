@@ -35,6 +35,7 @@ var config = {
         'user-pass-reset': ['./src/page/user-pass-reset/index.js'],
         'user-center': ['./src/page/user-center/index.js'],
         'user-info-update': ['./src/page/user-info-update/index.js'],
+        'user-pass-update': ['./src/page/user-pass-update/index.js'],
         'result': ['./src/page/result/index.js'],
     },
     output: {
@@ -137,6 +138,7 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', '找回密码')),
         new HtmlWebpackPlugin(getHtmlConfig('user-center', '个人中心')),
         new HtmlWebpackPlugin(getHtmlConfig('user-info-update', '个人信息编辑')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-pass-update', '修改密码')),
     ]
     
 }
