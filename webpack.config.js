@@ -37,6 +37,7 @@ var config = {
         'user-info-update': ['./src/page/user-info-update/index.js'],
         'user-pass-update': ['./src/page/user-pass-update/index.js'],
         'result': ['./src/page/result/index.js'],
+        'list': ['./src/page/list/index.js'],
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -139,6 +140,7 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('user-center', '个人中心')),
         new HtmlWebpackPlugin(getHtmlConfig('user-info-update', '个人信息编辑')),
         new HtmlWebpackPlugin(getHtmlConfig('user-pass-update', '修改密码')),
+        new HtmlWebpackPlugin(getHtmlConfig('list', '商品列表')),
     ]
     
 }
