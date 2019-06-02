@@ -28,7 +28,41 @@ var page = {
     },
     //绑定事件
     bindEvent : function(){
-
+        var _this = this;
+        // 排序的点击事件
+        $('.sort-item').click(function(){
+            var $this = $(this);
+            _this.data.listParam.pageNum = 1;
+            // 点击默认排序
+            if($this.data('type') === 'default'){
+                // 已经是active样式
+                if($this.hasClass('active')) {
+                    return;
+                }
+                // 其他
+                else{
+                    $this.addClass('active').siblings('.sort-item')
+                        .removeClass('active asc desc');
+                    _this.data.listParam.orderBy = 'default';
+                }
+            }
+            // 点击价格排序
+            else if($this.data('type') === 'price'){
+                // active class 的处理
+                $this.addClass('active').siblings('.sort-item')
+                    .removeClass('active asc desc');
+                // 升序、降序的处理
+                if(!$this.hasClass('asc')){
+                    $this.addClass('asc').removeClass('desc');
+                    _this.data.listParam.orderBy = 'price_asc';
+                }else{
+                    $this.addClass('desc').removeClass('asc');
+                    _this.data.listParam.orderBy = 'price_desc';
+                }
+            }
+            // 重新加载列表
+            _this.loadList();
+        });
     },
     // 加载list数据
     loadList : function() {
