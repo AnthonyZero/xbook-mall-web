@@ -6,12 +6,12 @@ var templatePagination  = require('./index.string');
 var Pagination = function(){
     var _this = this;
     this.defaultOption = {
-        container       : null,
+        container       : null, //分页容器 DOM
         pageNum         : 1,
         pageRange       : 3,
-        onSelectPage    : null
+        onSelectPage    : null //回调方法 切换页
     };
-    // 事件的处理
+    // 事件的处理 代理
     $(document).on('click', '.pg-item', function(){
         var $this = $(this);
         // 对于active和disabled按钮点击，不做处理
@@ -30,7 +30,7 @@ Pagination.prototype.render = function(userOption){
     if(!(this.option.container instanceof jQuery)){
         return;
     }
-    // 判断是否只有1页
+    // 判断是否只有1页 不显示分页组件 直接返回
     if(this.option.pages <= 1){
         return;
     }
