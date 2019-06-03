@@ -2,6 +2,7 @@
 require('./index.css');
 var _mall     = require('util/mall.js');
 var _user   = require('service/user-service.js');
+var _cart   = require('service/cart-service.js');
 // 导航
 var nav = {
     //初始化
@@ -37,6 +38,15 @@ var nav = {
             console.log('checkLogin:'+errMsg);
         });
     },
+    // 加载购物车数量
+    loadCartCount : function(){
+        _cart.getCartCount(function(res){
+            $('.nav .cart-count').text(res || 0);
+        }, function(errMsg){
+            $('.nav .cart-count').text(0);
+            console.log('getCartCount:'+errMsg);
+        });
+    }
 };
 
 module.exports = nav.init();
