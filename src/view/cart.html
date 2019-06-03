@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%= require('html-loader!./layout/head-common.html') %>
+    <title><%= htmlWebpackPlugin.options.title%> - Xbook-Mall一站式书籍购物平台</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<%= require('html-loader!./layout/nav.html') %>
+<%= require('html-loader!./layout/header.html') %>
+<div class="crumb">
+    <div class="crumb-icon w">
+        <a href="./index.html" class="crumb-item">Xbook-Mall</a>
+        <span> > </span>
+        <span class="link-text"><%= htmlWebpackPlugin.options.title%></span>
+    </div>
+</div>
+<div class="cart-wrap w">
+
+</div>
+<%= require('html-loader!./layout/footer.html') %>
+</body>
+</html>

@@ -39,7 +39,7 @@ var config = {
         'result': ['./src/page/result/index.js'],
         'list': ['./src/page/list/index.js'],
         'detail': ['./src/page/detail/index.js'],
-
+        'cart': ['./src/page/cart/index.js'],
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -144,6 +144,7 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('user-pass-update', '修改密码')),
         new HtmlWebpackPlugin(getHtmlConfig('list', '商品列表')),
         new HtmlWebpackPlugin(getHtmlConfig('detail', '商品详情')),
+        new HtmlWebpackPlugin(getHtmlConfig('cart', '购物车')),
     ]
     
 }
