@@ -40,6 +40,7 @@ var config = {
         'list': ['./src/page/list/index.js'],
         'detail': ['./src/page/detail/index.js'],
         'cart': ['./src/page/cart/index.js'],
+        'order-confirm': ['./src/page/order-confirm/index.js'],
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -145,6 +146,7 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('list', '商品列表')),
         new HtmlWebpackPlugin(getHtmlConfig('detail', '商品详情')),
         new HtmlWebpackPlugin(getHtmlConfig('cart', '购物车')),
+        new HtmlWebpackPlugin(getHtmlConfig('order-confirm', '订单确认')),
     ]
     
 }
