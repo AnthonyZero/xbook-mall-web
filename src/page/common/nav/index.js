@@ -8,6 +8,7 @@ var nav = {
     //初始化
     init : function(){
         this.loadUserInfo();
+        this.loadCartCount();
         this.bindEvent();
         return this;
     },
