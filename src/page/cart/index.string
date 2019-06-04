@@ -57,10 +57,10 @@
                 <span class="unitPrice">{{productPrice}}</span>
             </td>
             <td class="cart-info-item">
-                <span class="count-change-btn cart-minus">
+                <span class="count-change-btn cart-minus btn">
                 -</span>
                 <input type="text" class="cart-info-count" value="{{quantity}}" data-max="{{productStock}}>">
-                <span class="count-change-btn cart-plus">
+                <span class="count-change-btn cart-plus btn">
                 +</span>
             </td>
             <td class="cart-info-item">
