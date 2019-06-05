@@ -24,8 +24,8 @@ var addressModel = {
         var _this = this;
         this.$modelWrap  = $('.model-wrap');
         addressModelHtml = _mall.renderHtml(addressModelTemplate,{
-            isUpdate : this.option.isUpdate,
-            data 	 : this.option.data
+            isUpdate : this.option.isUpdate, //更新还是新增
+            data 	 : this.option.data  // 编辑的时候有值
         });
         this.$modelWrap.html(addressModelHtml);
         this.loadProvince();
@@ -36,8 +36,8 @@ var addressModel = {
             provinceHtml = this.getHtml(pronvice),
             $receiverProvince = this.$modelWrap.find('#receiverProvince');
         this.$modelWrap.find('#receiverProvince').html(provinceHtml);
-        if(this.option.isUpdate && this.option.data.receiverProvince){
-            $receiverProvince.val(this.option.data.receiverProvince);
+        if(this.option.isUpdate && this.option.data.receiverProvince){ //更新切原先省份有值
+            $receiverProvince.val(this.option.data.receiverProvince);  //赋值select的选中option
             this.loadCity(this.option.data.receiverProvince);
         }
     },
@@ -52,7 +52,7 @@ var addressModel = {
                 $receivercity.val(this.option.data.receiverCity) : null;
         }
     },
-    // 获取省份/城市 select option html
+    // 获取省份/城市 select option html代码
     getHtml:function(optionArray){
         var html = "<option value='请选择'>请选择</option>";
         for(var i=0,_length=optionArray.length;i<_length;i++){
@@ -69,20 +69,20 @@ var addressModel = {
         var _this = this;
         // 选取省份地址 获取城市列表
         // $('.model-wrap').on('change','#receiverProvince',function(){
-        this.$modelWrap.find('#receiverProvince').change(function(){
+        this.$modelWrap.find('#receiverProvince').change(function(){ //省份变化 事件
             var $this       = $(this);
             this.selectProvince = $this.val();
             _this.loadCity(this.selectProvince);
         });
         // 保存收货地址
         this.$modelWrap.find('.model-btn').click(function(){
-            var addressInfo		= _this.getModelInfo(),
+            var addressInfo		= _this.getModelInfo(), //data 和 status
                 isUpdate        = _this.option.isUpdate;
             if(!isUpdate && addressInfo.status){
                 _address.saveAddress(addressInfo.data,function(res){
                     _mall.successTips('添加地址成功!');
                     _this.hide();
-                    typeof _this.option.onSuccess === 'function' && _this.option.onSuccess();
+                    typeof _this.option.onSuccess === 'function' && _this.option.onSuccess(); //回调index.js的onSuccess 方法
                 },function(errMsg){
                     _mall.errorTips(errMsg);
                 });

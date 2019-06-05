@@ -42,7 +42,7 @@ var page = {
         // 提交订单按钮
         $(document).on('click', '.order-submit', function() {
             var $this = $(this),
-                shippingId = _this.data.selectedShippingId;
+                shippingId = _this.data.selectedShippingId; //当前选择收获地址ID
             if (!shippingId) {
                 _mall.errorTips('您尚未选择收货地址，请选择！');
             } else {
@@ -58,7 +58,7 @@ var page = {
         //加载地址模块，添加新地址
         $(document).on('click', '.address-new', function() {
             addressModel.show({
-                isUpdate: false,
+                isUpdate: false, //是否更新 false
                 onSuccess: function() {
                     _this.loadAddress();
                 }
