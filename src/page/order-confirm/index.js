@@ -28,12 +28,12 @@ var page = {
         // 选择收货地址并缓存
         $(document).on('click', '.address-item', function() {
             var $this = $(this);
-            // 再次点击同一个时取消选中
+            // 点击同一个地址时取消选中
             if (_this.data.selectedShippingId && $this.hasClass('active')) {
                 _this.data.selectedShippingId = null;
                 $this.removeClass('active');
             }
-            // 更新购物车商品数量
+            // 选中地址
             else {
                 _this.data.selectedShippingId = $this.data('shippingid');
                 $this.addClass('active').siblings().removeClass('active');
@@ -60,7 +60,7 @@ var page = {
             addressModel.show({
                 isUpdate: false, //是否更新 false
                 onSuccess: function() {
-                    _this.loadAddress();
+                    _this.loadAddress(); //成功后刷新用户地址列表
                 }
             });
         });
@@ -69,7 +69,7 @@ var page = {
             var selectedShippingId = $(this).parents('.address-item').data('shippingid');
             //避免点击编辑也触发选择收货地址
             e.stopPropagation();
-            _address.selectAddress(selectedShippingId, function(res) {
+            _address.selectAddress(selectedShippingId, function(res) { //API 获取地址信息 数据-show-》 addressModel
                 addressModel.show({
                     data: res,
                     isUpdate: true,
