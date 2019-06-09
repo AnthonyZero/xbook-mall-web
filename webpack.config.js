@@ -20,7 +20,8 @@ var getHtmlConfig = function(name, title){
         title       : title,
         inject      : true,
         hash        : true,
-        chunks      : ['common', name]
+        chunks      : ['common', name],
+        favicon     : './favicon.ico'
     };
 };
 
