@@ -45,11 +45,12 @@ var config = {
         'order-list': ['./src/page/order-list/index.js'],
         'order-detail': ['./src/page/order-detail/index.js'],
         'payment': ['./src/page/payment/index.js'],
+        'about': ['./src/page/about/index.js'],
     },
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'js/[name].js',
-        publicPath: WEBPACK_ENV === 'dev' ? "/dist/" : "//127.0.0.1/mmall-m/dist/", //相当于发布后的contextPath
+        publicPath: WEBPACK_ENV === 'dev' ? "/dist/" : "//127.0.0.1/xbook-mall/dist/", //相当于发布后的contextPath
     },
     externals : {
         'jquery' : 'window.jQuery'
@@ -86,8 +87,8 @@ var config = {
             use: [{
                 loader: 'html-loader', //针对src/view/layout 页面require引用
                 options: {
-                    minimize: true,
-                    removeAttributeQuotes: false
+                    minimize: true, //最小化的压缩
+                    removeAttributeQuotes: false //不删除属性上的引号
                 }
             }]
         }
@@ -154,6 +155,7 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('order-list', '订单列表')),
         new HtmlWebpackPlugin(getHtmlConfig('order-detail', '订单详情')),
         new HtmlWebpackPlugin(getHtmlConfig('payment', '订单支付')),
+        new HtmlWebpackPlugin(getHtmlConfig('about', '关于Xbook-Mall')),
     ]
     
 }
