@@ -16,17 +16,17 @@ var _mall = {
             data: param.data || '',
             success: function (res) {
                 //登陆成功
-                if (0 === res.status) {
-                    //回掉
-                    typeof param.success === 'function' && param.success(res.data, res.msg);
+                if (0 === res.code) {
+                    //回调
+                    typeof param.success === 'function' && param.success(res.code, res.message);
                 }
                 //无登陆状态需请求登陆
-                else if (10 === res.status) {
+                else if (500210 === res.code) {
                     _this.doLogin();
                 }
                 // 请求数据错误
-                else if (1 === res.status) {
-                    typeof param.error === 'function' && param.error(res.msg);
+                else {
+                    typeof param.error === 'function' && param.error(res.message);
                 }
             },
             error: function (err) {

@@ -109,6 +109,21 @@ var config = {
             }
         }
     },*/
+    devServer: {
+        port: '8080', //设置端口号
+        // 路径的配置
+        historyApiFallback: {
+            index: '/dist/page/index/index.html' //如果找不到界面就返回默认设置页
+        },
+        proxy: {
+            '**': {
+                target: 'http://localhost:8090',
+                secure: false,
+                prependPath: false,
+                changeOrigin: true //解决跨域
+            }
+        },
+    },
 
     //配置文件目录别名
     resolve: {
