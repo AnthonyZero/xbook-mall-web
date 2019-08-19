@@ -18,7 +18,7 @@ var _mall = {
                 //登陆成功
                 if (0 === res.code) {
                     //回调
-                    typeof param.success === 'function' && param.success(res.code, res.message);
+                    typeof param.success === 'function' && param.success(res.data, res.message);
                 }
                 //无登陆状态需请求登陆
                 else if (500210 === res.code) {
