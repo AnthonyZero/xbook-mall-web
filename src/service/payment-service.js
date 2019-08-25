@@ -5,7 +5,7 @@ var payment = {
     // 获取支付二维码
     getPrCode : function(orderNo,resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/order/pay.do'),
+            url     : _mall.getServerUrl('/paymeny/pay'),
             data 	: orderNo,
             success : resolve,
             error   : reject
@@ -14,7 +14,7 @@ var payment = {
     // 监听支付状态
     queryPayStatus : function(orderNo,resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/order/query_order_pay_status.do'),
+            url     : _mall.getServerUrl('/payment/queryOrderPayStatus'),
             data 	: orderNo,
             success : resolve,
             error   : reject

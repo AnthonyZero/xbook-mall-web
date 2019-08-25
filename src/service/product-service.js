@@ -6,7 +6,7 @@ var product = {
     // 加载商品列表
     getProductList : function(listInfo, resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/product/list.do'),
+            url     : _mall.getServerUrl('/product/list'),
             data    : listInfo,
             success : resolve,
             error   : reject
@@ -15,7 +15,7 @@ var product = {
     // 加载商品详情的数据
     getProductDetail: function(detailInfo, resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/product/detail.do'),
+            url     : _mall.getServerUrl('/product/detail'),
             data    : detailInfo,
             success : resolve,
             error   : reject

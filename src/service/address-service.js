@@ -5,7 +5,7 @@ var _address = {
     // 加载地址列表
     getAddressList : function(addressInfo, resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/shipping/list.do'),
+            url     : _mall.getServerUrl('/shipping/list'),
             data    : addressInfo,
             success : resolve,
             error   : reject
@@ -14,7 +14,7 @@ var _address = {
     // 保存地址信息
     saveAddress : function(addressInfo, resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/shipping/add.do'),
+            url     : _mall.getServerUrl('/shipping/add'),
             data    : addressInfo,
             success : resolve,
             error   : reject
@@ -23,7 +23,7 @@ var _address = {
     // 更新地址
     updateAddress : function(addressInfo, resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/shipping/update.do'),
+            url     : _mall.getServerUrl('/shipping/update'),
             data    : addressInfo,
             success : resolve,
             error   : reject
@@ -32,7 +32,7 @@ var _address = {
     // 删除地址
     delectAddress : function(addressInfo, resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/shipping/del.do'),
+            url     : _mall.getServerUrl('/shipping/del'),
             data    : addressInfo,
             success : resolve,
             error   : reject
@@ -41,7 +41,7 @@ var _address = {
     // 加载地址模板后回填地址
     selectAddress : function(addressInfo, resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/shipping/select.do'),
+            url     : _mall.getServerUrl('/shipping/select'),
             data    : {
                 shippingId :addressInfo
             },

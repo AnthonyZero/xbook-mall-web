@@ -5,7 +5,7 @@ var _cart = {
     // 获取购物车数量
     getCartCount : function(resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/cart/get_cart_product_count.do'),
+            url     : _mall.getServerUrl('/cart/getCartProductCount'),
             success : resolve,
             error   : reject
         });
@@ -13,7 +13,7 @@ var _cart = {
     // 添加到购物车
     addToCart : function(productInfo, resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/cart/add.do'),
+            url     : _mall.getServerUrl('/cart/add'),
             data    : productInfo,
             success : resolve,
             error   : reject
@@ -22,7 +22,7 @@ var _cart = {
     // 获取购物车列表
     getCartList : function(resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/cart/list.do'),
+            url     : _mall.getServerUrl('/cart/list'),
             success : resolve,
             error   : reject
         });
@@ -30,7 +30,7 @@ var _cart = {
     // 选择购物车商品
     selectProduct : function(productId, resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/cart/select.do'),
+            url     : _mall.getServerUrl('/cart/select'),
             data    : {
                 productId : productId
             },
@@ -41,7 +41,7 @@ var _cart = {
     // 取消选择购物车商品
     unselectProduct : function(productId, resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/cart/un_select.do'),
+            url     : _mall.getServerUrl('/cart/unSelect'),
             data    : {
                 productId : productId
             },
@@ -52,7 +52,7 @@ var _cart = {
     // 选中全部商品
     selectAllProduct : function(resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/cart/select_all.do'),
+            url     : _mall.getServerUrl('/cart/selectAll'),
             success : resolve,
             error   : reject
         });
@@ -60,7 +60,7 @@ var _cart = {
     // 取消选中全部商品
     unselectAllProduct : function(resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/cart/un_select_all.do'),
+            url     : _mall.getServerUrl('/cart/unSelectAll'),
             success : resolve,
             error   : reject
         });
@@ -68,7 +68,7 @@ var _cart = {
     // 更新购物车商品数量
     updateProduct : function(productInfo, resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/cart/update.do'),
+            url     : _mall.getServerUrl('/cart/update'),
             data    : productInfo,
             success : resolve,
             error   : reject
@@ -77,7 +77,7 @@ var _cart = {
     // 删除指定商品
     deleteProduct : function(productIds, resolve, reject){
         _mall.request({
-            url     : _mall.getServerUrl('/cart/delete_product.do'),
+            url     : _mall.getServerUrl('/cart/deleteProduct'),
             data    : {
                 productIds : productIds
             },
